@@ -1,0 +1,130 @@
+source: https://justjavascript.com/learn
+
+the javascript universe
+
+  what is your code (difference with values)
+    your code is not the values you use
+    your code interacts with values
+    your code is a list of instructions
+      if statements, variable declarations, function calls, loops, throws of errors
+
+  primitive values are like distant stars
+    you can only point to them
+    but you can't create OR destroy OR change them
+
+  objects and functions are like near asteroids
+    they are also not part of your code
+    but you can manipulate them
+    these are also values
+    * functions are also objects but with unique features
+
+  types of values
+    values of the same type behave similarly
+    up to this time there are 9 types
+
+    all primitive types of values
+      undefined - unintentionally missing values
+      null - intentionally missing values
+      booleans 
+      numbers - 100, 3.14 
+      bigints - for math on big numbers
+      strings
+      symbols
+
+    the other types - objects and functions
+      objects - to group related data
+      functions - to refer to code
+
+    there are no more types, the rest are just objects
+      arrays, dates, regexs are objects
+
+    not everything is an object in javascript
+      for example: "hi".toUpperCase() makes appear that "hi" is an object
+        but javascript really creates a temporary object to do this
+
+    checking a type
+      the function typeof is like a telescope
+        to see the asteroids and distant stars and see what types they have
+
+  expressions
+    expressions are questions that javascript can answer
+    the answers will always come from javascript as values
+    expressions are not values but rather javascript respond to them with values
+    expression is a piece of code that
+      expresses a value
+      evaluates to a value
+      results in a value
+    examples
+      2 + 2 // 4
+      typeof(4) // number
+      5 // this is a literal expression
+        //   we literally write the expression with the result value
+
+values and variables
+
+  primitive values are inmutable
+    we can't change primitive values
+    inmutable = unchangeable = read-only
+
+    strings mike behave like arrays when accessing the items/characters
+      but you can change in arrays the items value
+      while you can't change in strings the character
+      because arrays are not primitive values
+
+    javascript will never let you change a property of a primitive value
+      doesn't matter if it is a string, number, etc
+
+  variables are wires
+    variables are not values
+    variables are wires that point to values
+    variables don't point to other variables
+
+    assigning variables to values
+      let pet = 'Narwhal';
+        assigning the value "Narwhal" to the variable called pet
+        or also works:
+        point the pet variable to the "Narwhal" value
+
+    rules of assignments
+      the left side of assignment needs to be a variable
+      the right side of assignment needs to be an expression
+        this ensures the right side will always end up being a value
+      so in general a wire on the left, and a expression on the right
+
+    reading the value of a variable
+      variables can also work as expressions so you can get the current value
+      in argument functions, we don't pass variables to functions
+        we pass the current value of the variable to the function
+
+studying from the inside
+  this course says they won't focus on how javascript allocates memory
+    or things related to that
+
+  rather we will only check wires and expressions
+    that's good enough for the mental model
+
+meeting the primitive values
+
+  undefined
+    there is only one value of this type of undefined variable: undefined
+      console.log(typeof(undefined)); // "undefined"
+    reading a property from this value breaks your code
+    occurs naturally when javascript doesn't know what value you wanted
+      example: forgetting to give a value to a variable will default to undefined
+
+    it doesn't exactly mean that a variable is not defined yet
+      if you try to read a variable before its declaration you will get an error
+        console.log(jabberwocky); // ReferenceError!
+        let jabberwocky;
+
+  null
+    there is also only one value of this type: null
+
+  ...
+
+  source: https://justjavascript.com/learn/05-meeting-the-primitive-values
+
+
+    
+
+meeting objects and functions
