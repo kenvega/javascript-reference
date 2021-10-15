@@ -117,10 +117,71 @@ meeting the primitive values
         console.log(jabberwocky); // ReferenceError!
         let jabberwocky;
 
+      undefined it's just a regular primitive value like true, 2 or "hello there"
+
   null
     there is also only one value of this type: null
+      *but unlike undefined the typeof function will throw "object" instead of "null" because of a bug in javascript
+        console.log(typeof(null)); // "object" <- this is a bug in js because null is not an object
+          more on this here: https://2ality.com/2013/10/typeof-null.html
 
-  ...
+        null is not an object but a primitive value
+
+    it will also throw errors if you try to access its properties
+
+    normally it's used for intentional missing values
+
+  booleans
+    there are only two values for this type
+
+    console.log(typeof(true)); // "boolean"
+    console.log(typeof(false)); // "boolean"
+
+    in our mental model, only these two values exist one time each
+      regardless of how memory works under the hood in our machines
+
+  numbers
+    they don't behave exactly as regular mathematical numbers
+      console.log(0.1 + 0.2 === 0.3); // false
+      console.log(0.1 + 0.2 === 0.30000000000000004); // true
+
+    it uses floating point math (or math for computers)
+      don't worry too much about this unless you work in a finance app
+      more info here: https://floating-point-gui.de/formats/fp/
+
+    special numbers exist in javascript too
+      NaN, Infinity, -Infinity, -0
+
+      let scale = 0;
+      let a = 1 / scale; // Infinity
+      let b = 0 / scale; // NaN <- not a number. this is for invalid results
+      let c = -a; // -Infinity
+      let d = 1 / c; // -0
+
+      NaN is still a number type variable
+        console.log(typeof(NaN)); // "number"
+          it's just that its value is not a valid one
+
+  bigints
+    more precise... i guess
+    (???)
+
+  strings
+    they have some built in properties
+      let cat = 'Cheshire';
+      console.log(cat.length); // 8
+      console.log(cat[0]); // "C"
+      console.log(cat[1]); // "h"
+
+    but this doesn't mean string are objects
+      if they were objects you could change the properties of them and you can't
+        as primitives are inmutable
+
+    in our mental model, all possible string values already exist in our universe from the beginning
+      we can't really test this outside of our mental model so take this as a conventio
+
+  symbols
+    ...
 
   source: https://justjavascript.com/learn/05-meeting-the-primitive-values
 
