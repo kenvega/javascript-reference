@@ -78,6 +78,9 @@ values and variables
     variables are not values
     variables are wires that point to values
     variables don't point to other variables
+    variables don't have types, only values do
+    you can't pass a variable to a function, you can only pass values
+      but still: when passing a mutable value to a function, you will be able to change the value passed
 
     assigning variables to values
       let pet = 'Narwhal';
