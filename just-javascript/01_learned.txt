@@ -100,11 +100,16 @@ values and variables
         we pass the current value of the variable to the function
 
 studying from the inside
-  this course says they won't focus on how javascript allocates memory
-    or things related to that
+  this course says they won't focus on studying javascript from the outside. this includes things like:
+    how javascript values are represented in machines' memories
+    strings are actually a sequence of bytes stored in a chip
 
-  rather we will only check wires and expressions
+  rather we will only study javascript from the inside: learning without thinking how it is implemented
+    check wires and expressions
+    here a string is a value, not a pointer, not a memory address
+    also don't focus on things like: "passing by reference", "allocating on stack", "copying on write"
     that's good enough for the mental model
+    * this is like studying the properties of a star without questioning if the star really exists
 
 meeting the primitive values
 
