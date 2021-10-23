@@ -122,8 +122,8 @@ meeting the primitive values
 
     it doesn't exactly mean that a variable is not defined yet
       if you try to read a variable before its declaration you will get an error
-        console.log(jabberwocky); // ReferenceError!
-        let jabberwocky;
+        console.log(someVariable); // ReferenceError!
+        let someVariable;
 
       undefined it's just a regular primitive value like true, 2 or "hello there"
 
@@ -138,12 +138,12 @@ meeting the primitive values
     it will also throw errors if you try to access its properties
 
     normally it's used for intentional missing values
+      so we can distinguish possible mistakes from real ones related to missing values
 
   booleans
     there are only two values for this type
-
-    console.log(typeof(true)); // "boolean"
-    console.log(typeof(false)); // "boolean"
+      console.log(typeof(true)); // "boolean"
+      console.log(typeof(false)); // "boolean"
 
     in our mental model, only these two values exist one time each
       regardless of how memory works under the hood in our machines
