@@ -157,6 +157,16 @@ meeting the primitive values
       don't worry too much about this unless you work in a finance app
       more info here: https://floating-point-gui.de/formats/fp/
 
+    all variables of type number exist in this range
+      Number.MAX_SAFE_INTEGER and Number.MIN_SAFE_INTEGER
+      trying to add 1 or more to this will cause errors in javascript
+        console.log(Number.MAX_SAFE_INTEGER);     // 9007199254740991
+        console.log(Number.MAX_SAFE_INTEGER + 1); // 9007199254740992
+        console.log(Number.MAX_SAFE_INTEGER + 2); // 9007199254740992 (again!)
+        console.log(Number.MAX_SAFE_INTEGER + 3); // 9007199254740994
+        console.log(Number.MAX_SAFE_INTEGER + 4); // 9007199254740996
+        console.log(Number.MAX_SAFE_INTEGER + 5); // 9007199254740996 (again!)
+
     special numbers exist in javascript too
       NaN, Infinity, -Infinity, -0
 
