@@ -57,8 +57,9 @@ the javascript universe
     examples
       2 + 2 // 4
       typeof(4) // number
-      5 // this is a literal expression
+      5 // this is a literal expression (can also call it a number literal)
         //   we literally write the expression with the result value
+      {} // this is an object literal - an object as an expression
 
 values and variables
 
@@ -77,7 +78,7 @@ values and variables
   variables are wires
     variables are not values
     variables are wires that point to values
-    variables don't point to other variables
+    variables don't point to other variables nor expressions
     variables don't have types, only values do
     you can't pass a variable to a function, you can only pass values
       but still: when passing a mutable value to a function, you will be able to change the value passed
@@ -93,6 +94,9 @@ values and variables
       the right side of assignment needs to be an expression
         this ensures the right side will always end up being a value
       so in general a wire on the left, and a expression on the right
+      you could say that assignment is to
+        connect a variable on the left with the current value on the right
+        and do nothing more than that.
 
     reading the value of a variable
       variables can also work as expressions so you can get the current value
@@ -119,6 +123,8 @@ meeting the primitive values
     reading a property from this value breaks your code
     occurs naturally when javascript doesn't know what value you wanted
       example: forgetting to give a value to a variable will default to undefined
+      after a variable is declared, it always points to a value
+        if not specified where to point to, it will point to undefined
 
     it doesn't exactly mean that a variable is not defined yet
       if you try to read a variable before its declaration you will get an error
@@ -178,32 +184,94 @@ meeting the primitive values
 
       NaN is still a number type variable
         console.log(typeof(NaN)); // "number"
-          it's just that its value is not a valid one
+          it's just that its numeric value is not a valid one
 
   bigints
     more precise... i guess
     (???)
 
   strings
+    you can use single quotes, double quotes, or backticks to write them
+
     they have some built in properties
       let cat = 'Cheshire';
       console.log(cat.length); // 8
       console.log(cat[0]); // "C"
-      console.log(cat[1]); // "h"
+      console.log(cat[1]); // #"h"
 
     but this doesn't mean string are objects
       if they were objects you could change the properties of them and you can't
-        as primitives are inmutable
+        because primitives values are inmutable
+        you can't assign cat[0] to another value
 
     in our mental model, all possible string values already exist in our universe from the beginning
-      we can't really test this outside of our mental model so take this as a conventio
+      not really possible for a chip to store all possible string values, but it is possible to have that idea in our mental model
+      we can't really test this outside of our mental model so take this as a convention
 
   symbols
-    ...
+    they are like door keys:
+      you can hide information inside objects
+      you can control which parts of your code can access those hidden parts
 
-  source: https://justjavascript.com/learn/05-meeting-the-primitive-values
+meeting objects and functions 
+
+  intro to non-primitive values
+    these are objects and functions
+    unlike primitive types, these types lets make our own values
+    for primitive you summon the already existing values like numbers
+    for non primitive, you create new values like objects
+
+  objects
+
+    objects cover arrays, dates, RegExps, and others
+      console.log(typeof({})); // "object"
+      console.log(typeof([])); // "object"
+      console.log(typeof(new Date())); // "object"
+      console.log(typeof(/\d+/)); // "object"
+      console.log(typeof(Math)); // "object"
+
+    being non-primitive means they are mutable, so we can change them
+      we can access/change their properties with . or []
+      e.g.
+        let teacher = { name: 'Dan' };
+        teacher.name = 'Nad'; // Dot notation
+        teacher['name'] = 'And'; // Bracket notation
+
+    primitive values always exists from the start
+      but with non primitive values like objects, you can create more of them
+
+        for our mental model, this means that primitive values are unique
+          but objects can have exact same value and still be different
+
+          let shrek = {}; // new object
+          let donkey = {}; // not the same object from line before
+
+          this also applies for all coming from objects like arrays, dates, etc
+
+    we can't destroy objects with code, but javascript garbage collect them instead
+
+    in our mental model, objects float near to us
+      meaning that we can manipulate them and create more of them
+
+  functions
+
+    functions are also values
+
+    they are also created every time you reach them in your code
+      e.g.
+        // 
+        for (let i = 0; i < 7; i++) {
+          console.log(2);
+        }
+        //
+        for (let i = 0; i < 7; i++) {
+          console.log({});
+        }
+        //
+        for (let i = 0; i < 7; i++) {
+          console.log(function() {});
+        }
 
 
-    
 
-meeting objects and functions
+
