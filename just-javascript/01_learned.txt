@@ -259,19 +259,30 @@ meeting objects and functions
 
     they are also created every time you reach them in your code
       e.g.
-        // 
-        for (let i = 0; i < 7; i++) {
-          console.log(2);
-        }
-        //
-        for (let i = 0; i < 7; i++) {
-          console.log({});
-        }
-        //
-        for (let i = 0; i < 7; i++) {
-          console.log(function() {});
-        }
 
+      // this passes the same unique value 2 seven times to console.log
+      for (let i = 0; i < 7; i++) {
+        console.log(2);
+      }
 
+      // a new object is created every time it is passed to console.log
+      for (let i = 0; i < 7; i++) {
+        console.log({});
+      }
 
+      // the same way, a new function is created every time is passed to console.log
+      for (let i = 0; i < 7; i++) {
+        console.log(function() {});
+      }
+
+    because functions are also values, they can be printed to console too as functions
+      if you don't call the function, the value printed will be the function itself
+
+      e.g.
+        let countWonders = function() { return 7; };
+        let wonders = countWonders
+        console.log(wonders); // logs the function, not 7
+
+    the () changes the meaning of your code
+      an assignment without the () means to 
 
