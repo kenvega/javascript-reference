@@ -315,5 +315,78 @@ meeting objects and functions
       and an assignment with the () means
         point my variable to the value returned by the function
 
+Equality of values
+
+  There are three kinds of equality:
+
+    Same Value Equality
+      Object.is(a, b)
+
+        this one fits with our mental model
+        checks if a and b are the same value (point to the same value)
+        it doesn't matter if you compare objects or not
+        e.g.
+          console.log(Object.is(2, 2)); // true
+          console.log(Object.is({}, {})); // false
+
+
+      example with objects
+
+        let banana = {};
+        let cherry = banana;
+        let chocolate = cherry;
+        cherry = {}; // cherry changes where is pointing to, but chocolate doesn't
+
+        console.log(Object.is(banana, cherry)); // false
+        console.log(Object.is(cherry, chocolate)); // false
+        console.log(Object.is(chocolate, banana)); // true
+
+    Strict equality
+      a === b
+
+      how it differs from Object.is?
+        Object.is has a direct meaning in our mental model
+          it's the idea of the same value in our universe
+
+        with strict equality is almost the same
+          but there are some specific cases that are exceptions to the rule
+
+            Object.is(NaN, NaN) // true
+            NaN === NaN // false, but there is only one NaN value in our universe
+              // * note: NaN is the only value that's not Strict Equal to itself
+                // so NaN !== NaN will always result in true
+                // can be a way to check if a variable is NaN
+                // why this happens? answer here: https://stackoverflow.com/a/1573715/458193
+
+
+            -0 === 0 // true
+            Object.is(-0, 0) // false, they are different values in our universe
+
+        to make them basically the same function we could do this
+
+          function strictEquals(a,b) {
+            // first check if both are NaN
+            if (Object.is(a, NaN) && Object.is(b, NaN)) return false
+
+            // then check case -0 and 0,
+            if ( (Object.is(a, 0) && Object.is(b, -0)) ||
+                  (Object.is(a, -0) && Object.is(b, 0)) )
+              return true
+
+            // then return the same as Object.is
+            return Object.is(a,b)
+          }
+
+          more answers here: https://gist.github.com/gaearon/08a85a33e3d08f3f2ca25fb17bd9d638
+
+          in general, strict equality and same value equality are almost identical
+
+    Loose Equality
+      a == b
+
+      you can find what happens when doing loose equality here
+        https://dorey.github.io/JavaScript-Equality-Table/
+
+      very uncommon in modern codebases as it is very confusing
 
 
