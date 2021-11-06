@@ -256,8 +256,24 @@ meeting objects and functions
   functions
 
     functions are also values
+      just like numbers, or objects
+      this means variables can point to them
 
-    they are also created every time you reach them in your code
+      e.g.
+        function() {} // this is basically a expression so it evaluates to a value
+          // even without been invoked it's still considered a value
+          // it's called a function value
+          // when a function is called, the result it's called a call expression
+
+    because functions are also values, they can be printed to console too as functions
+      if you don't call the function, the value printed will be the function itself
+
+      e.g.
+        let countWonders = function() { return 7; };
+        let wonders = countWonders
+        console.log(wonders); // logs the function, not 7
+
+    they are also created every time you reach them in your code (like objects)
       e.g.
 
       // this passes the same unique value 2 seven times to console.log
@@ -275,14 +291,29 @@ meeting objects and functions
         console.log(function() {});
       }
 
-    because functions are also values, they can be printed to console too as functions
-      if you don't call the function, the value printed will be the function itself
+      in general
+        primitive values are always summoned
+          because they already exist from the start
 
-      e.g.
-        let countWonders = function() { return 7; };
-        let wonders = countWonders
-        console.log(wonders); // logs the function, not 7
+        functions and object type values are always created
+          and every brand new object or function has a different value
+
+    technically functions are objects in javascript
+
+      if you can do something to an object, you can also do that to a function too
+
+      but in our mental model they are separate types
+        because they have different capabilities than regular objects
+
+      * I made a test and I don't understand
+        console.log(typeof function() {}) // function (?)
 
     the () changes the meaning of your code
-      an assignment without the () means to 
+      an assignment without the () means
+        point my variable to the function value
+
+      and an assignment with the () means
+        point my variable to the value returned by the function
+
+
 
