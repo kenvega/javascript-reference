@@ -389,4 +389,43 @@ Equality of values
 
       very uncommon in modern codebases as it is very confusing
 
+Properties
+
+  let sherlock = {
+    surname: 'Holmes',
+    address: { city: 'London' }
+  };
+
+  let john = {
+    surname: 'Watson',
+    address: sherlock.address
+  };
+
+  john.surname = 'Lennon';
+  john.address.city = 'Malibu';
+
+  console.log(sherlock.surname); // Holmes
+  console.log(sherlock.address.city); // Malibu
+  console.log(john.surname); // Lennon
+  console.log(john.address.city); // Malibu
+
+  properties are similar to variables
+    properties act like wires to the values
+      properties start from the objects and not from our code like variables
+      properties don't contain values
+      properties point to values
+      the right side of an assignment of a property is also always an expression
+
+    property names are case sensitive and unique
+      object.age is not the same as object.Age
+
+  trying to access a property that is not pointing to anything returns undefined
+
+  trying to access a property from an object that is null or undefined will throw an error always
+
+
+
+
+
+
 
