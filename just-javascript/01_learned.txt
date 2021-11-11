@@ -423,9 +423,8 @@ Properties
 
   trying to access a property from an object that is null or undefined will throw an error always
 
+  object nesting has no special meaning in our mental model
+    because object nesting would be just objects pointing to other objects
 
-
-
-
-
+  properties can't point to other properties or variables, only values
 
