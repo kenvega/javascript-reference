@@ -428,3 +428,25 @@ Properties
 
   properties can't point to other properties or variables, only values
 
+Mutation
+
+  mutating an object it's basically changing an object's property
+
+  thinking that objects are nested doesn't work for our mental model
+    because it's not than an object pertain to one only object or many objects
+
+    it is that an object can be pointed by many other objects
+
+  // mutation example
+  john.surname = 'Lennon';
+  john.address.city = 'Malibu'; // mutating the object that john.address points to
+
+  // workaround for mutation
+  john.surname = 'Lennon';
+  john.address = { city: 'Malibu' }; // creating a new object for john.address to points to
+    // or also mutating the address property of the object pointed by the john variable
+
+  
+
+
+
