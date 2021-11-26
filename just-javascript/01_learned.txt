@@ -433,20 +433,33 @@ Mutation
   mutating an object it's basically changing an object's property
 
   thinking that objects are nested doesn't work for our mental model
-    because it's not than an object pertain to one only object or many objects
+    because it's not that an object pertains to one only object or many objects
 
     it is that an object can be pointed by many other objects
 
-  // mutation example
-  john.surname = 'Lennon';
-  john.address.city = 'Malibu'; // mutating the object that john.address points to
+  mutation of objects if not carefully done to shared objects, can cause bugs
 
-  // workaround for mutation
-  john.surname = 'Lennon';
-  john.address = { city: 'Malibu' }; // creating a new object for john.address to points to
-    // or also mutating the address property of the object pointed by the john variable
+    // mutation example
+    john.surname = 'Lennon';
+    john.address.city = 'Malibu'; // mutating the object that john.address points to
+                        // now that object.city will always be 'Malibu' wherever you reference it
+
+    // workaround for mutation
+    john.surname = 'Lennon';
+    john.address = { city: 'Malibu' }; // creating a new object for john.address to points to
+      // or also mutating the address property of the object pointed by the john variable
+
+  creating a new object and changing its properties right after that wouldn't cause a bug
+    because there are no other variables pointing to that same object
+
+  how const works with objects and mutation
+
+    const means that wires won't be able to point to other values later
+      but if they are pointing to object values, that doesn't mean those objects can mutate
+      so it's not that with const your objects are inmutable
+
+      in other words: const only prevents variable reassignment, not object mutation
 
   
-
 
 
