@@ -460,6 +460,54 @@ Mutation
 
       in other words: const only prevents variable reassignment, not object mutation
 
-  
+Prototypes
+
+  when a property is not found in an object
+    the object can look for that property in the proto object and continue infinitely as long as
+      the upper objects also have their proto objects until the property is found
+
+  to assign a proto object to your object you just define the __proto__ property
+
+    let human = {
+      hands: 2
+    };
+
+    let giorgo = {
+      __proto__: human,
+      age: 19
+    };
+
+    // then you can do things like
+    console.log(giorgo.hands)https://res.cloudinary.com/dg3gyk0gu/video/upload/f_auto/just-javascript-email-images/jj09/proto_anim-mp4.mp4 // 2
+
+  if both objects (your object and your proto object) have the same property
+    you stop the search in the first property you find
+      e.g. if giorgo had a different key value for hands, that would have been the answer for giorgo.hands
+
+    if you want to know if an object has property and not the proto objects
+      use .hasOwnProperty -- e.g. using the code from example above
+        console.log(human.hasOwnProperty('hands')); // true
+        console.log(gwen.hasOwnProperty('hands')); // false
+
+  note that for writing is different from reading
+    when writing a new property for an objet, the object won't look up the proto object
+      instead it will just create a new property for the object and assign the value
+
+  javascript use __proto__ for many of the type of variables that's why you have access to "built-in" methods
+    like .toString or .hasOwnProperty because they are in the __proto__ object of your variables
+
+  all created objects by default share the same proto object
+    the same happens for every type of variable like strings or numbers
+
+  if you add properties to the prototype like this
+    let obj = {};
+    obj.__proto__.smell = 'banana'; 
+
+    you are polluting the prototype object that all objects share
+
+    this is discouraged by the web community because it is fragile so avoid it
+
+  more info about proto and why should be avoided here: https://2ality.com/2015/09/proto-es6.html
+
 
 
