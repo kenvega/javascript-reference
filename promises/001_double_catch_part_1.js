@@ -7,7 +7,7 @@
 //            when a service fails in a promise, the respective catch will run
 //            but what is returned will always end up in the then from the component
 //            so the only way to get to the catch of the component through the service is.. (?)
-//              could it throwing an error in the catch from the service (?)
+//              could it be throwing an error in the catch from the service (?)
 
 const axios = require("axios");
 
