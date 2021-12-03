@@ -1,0 +1,17 @@
+when creating an object, can I refer to the same object?
+
+what is considered falsy in javascript?
+  false, undefined, 0, null, what else?
+  objects? arrays? probably a reference could help
+
+  this question comes because i saw this
+    const availableMenuItems = menuItems.filter(menuItem => menuItem);
+
+
+why this works?
+
+  const arr = [1, 2, 3]
+  arr.forEach(console.log) // this will print some numbers.. although not exactly 1, 2, 3
+                           // but how.. i didn't pass any params nor invoked the function
+
+  arr.forEach(e => {console.log(e)})
